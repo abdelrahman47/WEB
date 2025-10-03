@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenFields Organics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar__info">
+        <span class="topbar__highlight">Seasonal Harvests Now Shipping Worldwide</span>
+        <span class="topbar__contact">Call us: <a href="tel:+1234567890">+1 (234) 567-890</a></span>
+      </div>
+      <div class="topbar__social">
+        <a href="#" aria-label="Instagram" class="icon"><span aria-hidden="true">IG</span></a>
+        <a href="#" aria-label="Facebook" class="icon"><span aria-hidden="true">FB</span></a>
+        <a href="#" aria-label="YouTube" class="icon"><span aria-hidden="true">YT</span></a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar__logo" href="#">GreenFields<span>Farm</span></a>
+      <button class="navbar__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="navbar__links" id="primary-navigation">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="navbar__cta" href="#contact">Visit Our Farm</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" aria-label="Organic Farm Highlights">
+      <div class="hero__slider" role="region" aria-live="polite">
+        <div class="hero__slides">
+          <article class="hero__slide active" data-theme="light">
+            <div class="hero__media" style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="Hand picking ripe tomatoes"></div>
+            <div class="hero__content">
+              <p class="hero__eyebrow">From Soil to Harvest</p>
+              <h1>Regenerative Farming That Nourishes Communities</h1>
+              <p>Experience fresh produce grown with sustainable methods, regenerative practices, and a passionate team dedicated to the earth.</p>
+              <div class="hero__actions">
+                <a class="btn btn--primary" href="#products">Shop the Harvest</a>
+                <a class="btn btn--ghost" href="#process">Our Methods</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hero__slide" data-theme="dark">
+            <div class="hero__media" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="Farm-to-table market"></div>
+            <div class="hero__content">
+              <p class="hero__eyebrow">Farm to Table</p>
+              <h1>Delivering Organic Goodness Straight to Your Doorstep</h1>
+              <p>Build CSA subscriptions, custom seasonal boxes, and chef collaborations tailored to your community.</p>
+              <div class="hero__actions">
+                <a class="btn btn--primary" href="#services">Explore Services</a>
+                <a class="btn btn--ghost" href="#contact">Partner With Us</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hero__slide" data-theme="light">
+            <div class="hero__media" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="Fresh organic produce"></div>
+            <div class="hero__content">
+              <p class="hero__eyebrow">Organic Standards</p>
+              <h1>Certified Organic Produce Grown With Care</h1>
+              <p>We cultivate with crop rotations, compost teas, and natural pest management to ensure nutrient-dense harvests.</p>
+              <div class="hero__actions">
+                <a class="btn btn--primary" href="#about">Meet the Farmers</a>
+                <a class="btn btn--ghost" href="#contact">Schedule a Tour</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="hero__progress" role="tablist" aria-label="Slide navigation">
+          <button class="hero__dot active" aria-label="Slide 1" data-slide="0"></button>
+          <button class="hero__dot" aria-label="Slide 2" data-slide="1"></button>
+          <button class="hero__dot" aria-label="Slide 3" data-slide="2"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about__image" role="img" aria-label="Farmers inspecting crops"></div>
+        <div class="about__content">
+          <h2>Rooted in Family, Powered by Nature</h2>
+          <p>GreenFields Organics is a fourth-generation family farm dedicated to biodynamic agriculture. We blend time-honored practices with modern technology to nurture soil health, protect biodiversity, and supply the freshest produce to our community.</p>
+          <ul class="about__stats">
+            <li><span>120+</span> Acres under regenerative cultivation</li>
+            <li><span>40</span> Unique heirloom varieties</li>
+            <li><span>365</span> Days of climate-positive operations</li>
+          </ul>
+          <a class="btn btn--primary" href="#contact">Plan a Visit</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__eyebrow">Cultivating Possibilities</p>
+          <h2>Our Services</h2>
+          <p>We grow more than crops&mdash;we cultivate connections between people, food, and the planet.</p>
+        </header>
+        <div class="services__grid">
+          <article class="card">
+            <span class="card__icon">🌾</span>
+            <h3>Community Supported Agriculture</h3>
+            <p>Customized weekly CSA shares featuring peak-season vegetables, herbs, and specialty items curated for local members.</p>
+            <a href="#contact" class="card__link">Join the CSA</a>
+          </article>
+          <article class="card">
+            <span class="card__icon">🍽️</span>
+            <h3>Chef Partnerships</h3>
+            <p>Exclusive harvests, microgreens, and edible flowers cultivated in collaboration with restaurants and culinary teams.</p>
+            <a href="#contact" class="card__link">Collaborate</a>
+          </article>
+          <article class="card">
+            <span class="card__icon">🏡</span>
+            <h3>Farm Experiences</h3>
+            <p>Seasonal workshops, tasting tours, and educational programs that immerse guests in regenerative agriculture.</p>
+            <a href="#contact" class="card__link">Book a Tour</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="container">
+        <header class="section-header section-header--light">
+          <p class="section-header__eyebrow">From Seed to Supper</p>
+          <h2>Our Organic Process</h2>
+          <p>Transparently sharing the regenerative approach that produces resilient soil and vibrant flavors.</p>
+        </header>
+        <div class="process__steps">
+          <article class="step">
+            <span class="step__number">01</span>
+            <h3>Soil Health</h3>
+            <p>We enrich our soil with cover crops, compost, and microbial teas to build thriving ecosystems underground.</p>
+          </article>
+          <article class="step">
+            <span class="step__number">02</span>
+            <h3>Seed Selection</h3>
+            <p>Heirloom and regionally adapted seeds are chosen for flavor, resilience, and climate harmony.</p>
+          </article>
+          <article class="step">
+            <span class="step__number">03</span>
+            <h3>Regenerative Care</h3>
+            <p>Low-till cultivation, natural pest management, and smart irrigation protect our crops and watershed.</p>
+          </article>
+          <article class="step">
+            <span class="step__number">04</span>
+            <h3>Harvest &amp; Delivery</h3>
+            <p>Hand-picked produce is cooled, packed, and delivered within hours to preserve peak nutrition and taste.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="products" id="products">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-header__eyebrow">Seasonal Highlights</p>
+          <h2>Featured Produce</h2>
+          <p>Discover what's fresh from our fields this week.</p>
+        </header>
+        <div class="products__grid">
+          <article class="product">
+            <div class="product__image" style="background-image: url('https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=80');" role="img" aria-label="Heirloom tomatoes"></div>
+            <div class="product__content">
+              <h3>Heirloom Tomatoes</h3>
+              <p>Juicy, vibrant tomatoes in a rainbow of colors, perfect for summer salads and sauces.</p>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product__image" style="background-image: url('https://images.unsplash.com/photo-1504595403659-9088ce801e29?auto=format&fit=crop&w=800&q=80');" role="img" aria-label="Organic carrots"></div>
+            <div class="product__content">
+              <h3>Sweet Carrots</h3>
+              <p>Crunchy, candy-sweet carrots nurtured in compost-rich beds for optimal flavor.</p>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product__image" style="background-image: url('https://images.unsplash.com/photo-1601000938145-31c4a23706d8?auto=format&fit=crop&w=800&q=80');" role="img" aria-label="Basket of leafy greens"></div>
+            <div class="product__content">
+              <h3>Living Greens</h3>
+              <p>Harvested minutes before delivery, our leafy greens retain maximum nutrients and crispness.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta__content">
+          <h2>Ready to Taste the Difference?</h2>
+          <p>Connect with our team to customize CSA shares, schedule a farm visit, or partner for local events.</p>
+        </div>
+        <form class="cta__form">
+          <div class="form__group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form__group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form__group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us how we can help"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__about">
+        <a class="footer__logo" href="#">GreenFields<span>Farm</span></a>
+        <p>Growing nutritious food with regenerative practices and sharing our harvest with the community.</p>
+      </div>
+      <div class="footer__links">
+        <h3>Visit</h3>
+        <p>245 Orchard Lane<br />Willow Creek, OR 97001</p>
+        <a href="mailto:hello@greenfieldsfarm.com">hello@greenfieldsfarm.com</a>
+      </div>
+      <div class="footer__newsletter">
+        <h3>Newsletter</h3>
+        <p>Stay informed about seasonal harvests and events.</p>
+        <form class="footer__form">
+          <label class="sr-only" for="newsletter-email">Email</label>
+          <input type="email" id="newsletter-email" placeholder="Email address" required />
+          <button type="submit" class="btn btn--ghost">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> GreenFields Organics. All rights reserved.</p>
+      <div class="footer__social">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
