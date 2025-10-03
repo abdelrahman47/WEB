@@ -20,12 +20,50 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Nunito', sans-serif;
   color: var(--color-text);
   background: var(--color-background);
   line-height: 1.6;
   min-height: 100vh;
+}
+
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(106, 176, 76, 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 a {
@@ -60,6 +98,31 @@ svg {
   border: 2px solid transparent;
   cursor: pointer;
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn span {
+  position: relative;
+  z-index: 1;
 }
 
 .btn--primary {
@@ -252,18 +315,50 @@ svg {
   min-height: 520px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 1s ease, visibility 1s ease, transform 1s ease;
+  transform: scale(0.95);
 }
 
 .hero__slide.active {
   opacity: 1;
   visibility: visible;
+  position: relative;
+  transform: scale(1);
+}
+
+.hero__slide.slide-out-left {
+  transform: translateX(-100px);
+  opacity: 0;
+}
+
+.hero__slide.slide-out-right {
+  transform: translateX(100px);
+  opacity: 0;
 }
 
 .hero__media {
   background-size: cover;
   background-position: center;
   position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.hero__slide.active .hero__media {
+  animation: parallaxZoom 8s ease-out forwards;
+}
+
+@keyframes parallaxZoom {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .hero__media::after {
@@ -277,6 +372,39 @@ svg {
 .hero__content {
   background: #fff;
   padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero__content > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hero__slide.active .hero__content > *:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.hero__slide.active .hero__content > *:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.hero__slide.active .hero__content > *:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.7s;
+}
+
+.hero__slide.active .hero__content > *:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.9s;
 }
 
 .hero__slide[data-theme='dark'] .hero__content {
@@ -341,6 +469,44 @@ svg {
 .hero__dot.active {
   background: var(--color-secondary);
   transform: scale(1.2);
+}
+
+.hero__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 10;
+  opacity: 0;
+}
+
+.hero__slider:hover .hero__nav {
+  opacity: 1;
+}
+
+.hero__nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero__nav--prev {
+  left: 2rem;
+}
+
+.hero__nav--next {
+  right: 2rem;
 }
 
 .about {
@@ -438,6 +604,7 @@ svg {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
 }
 
 .card::before {
@@ -450,7 +617,7 @@ svg {
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) rotateX(2deg);
   box-shadow: var(--shadow-lg);
 }
 
@@ -560,12 +727,24 @@ svg {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product:hover .product__image {
+  transform: scale(1.05);
 }
 
 .product__image {
   height: 220px;
   background-size: cover;
   background-position: center;
+  transition: transform 0.6s ease;
 }
 
 .product__content {
@@ -712,6 +891,39 @@ svg {
   border: 0;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 @media (max-width: 960px) {
   .navbar__links {
     position: fixed;
@@ -756,6 +968,19 @@ svg {
     padding: 3rem;
   }
 
+  .hero__nav {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero__nav--prev {
+    left: 1rem;
+  }
+
+  .hero__nav--next {
+    right: 1rem;
+  }
+
   .about .container,
   .cta .container {
     grid-template-columns: 1fr;
@@ -777,6 +1002,24 @@ svg {
 
   .hero__content {
     padding: 2.5rem;
+  }
+
+  .hero__nav {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero__nav svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero__nav--prev {
+    left: 0.5rem;
+  }
+
+  .hero__nav--next {
+    right: 0.5rem;
   }
 
   .section-header__eyebrow {
